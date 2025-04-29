@@ -4,32 +4,33 @@ import random
 
 names = []
 words = [
-    "Apple",
-    "Banana",
-    "Candle",
-    "Mystery",
-    "Elephant",
-    "Jazz",
-    "Keyboard",
-    "Whisper",
-    "Oxygen",
-    "Pizza",
-    "Galaxy",
-    "Avalanche",
-    "Crocodile",
-    "Quicksand",
-    "Notebook",
-    "Bicycle",
-    "Volcano",
-    "Igloo",
-    "Wizard",
-    "Triangle",
-    "Sphinx",
-    "Horizon",
-    "Puzzle",
-    "Robot",
-    "Thunder"
+    "APPLE",
+    "BANANA",
+    "CANDLE",
+    "MYSTERY",
+    "ELEPHANT",
+    "JAZZ",
+    "KEYBOARD",
+    "WHISPER",
+    "OXYGEN",
+    "PIZZA",
+    "GALAXY",
+    "AVALANCHE",
+    "CROCODILE",
+    "QUICKSAND",
+    "NOTEBOOK",
+    "BICYCLE",
+    "VOLCANO",
+    "IGLOO",
+    "WIZARD",
+    "TRIANGLE",
+    "SPHINX",
+    "HORIZON",
+    "PUZZLE",
+    "ROBOT",
+    "THUNDER"
 ]
+
 
 display_word= []
 guess_word = words[random.randint(0,25)]
@@ -74,15 +75,22 @@ class HangmanMain:
         self.letter_entry = Entry(self.quiz_frame)
         self.letter_entry.grid()
 
-        self.guess_button = Button(self.quiz_frame, text = "GUESS", command = check_letter)
+        self.guess_button = Button(self.quiz_frame, text = "GUESS", command = self.check_letter)
         self.guess_button.grid()
 
     def check_letter(self):
         global user_guess
-        user_guess = self.letter_entry.get()
-        if user_guess in guess_word
+        global letter_index
+        user_guess = self.letter_entry.get().upper()
+        if user_guess in guess_word:
+            print("Correct")
+            letter_index = guess_word.index(user_guess)
+            display_word[letter_index] = user_guess
+            self.guess_word.config (text=display_word)
+        else:
+            print("Incorrect")
 
-
+# check which letter in the word is the same as the letter guessed
 
 
 
